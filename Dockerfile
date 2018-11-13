@@ -1,7 +1,7 @@
-FROM micoli/docker-sylius-php:latest
+FROM micoli/php:latest
 
-ARG KUBERNETES_VERSION=v1.8.0
-ARG HELM_VERSION=v2.10.0
+ARG KUBERNETES_VERSION=v1.15.2
+ARG HELM_VERSION=v2.14.3
 
 RUN	apk update ;\
 	apk add --no-cache --update \
@@ -26,6 +26,12 @@ RUN	apk update ;\
 	curl -o /tmp/helm.tgz https://storage.googleapis.com/kubernetes-helm/helm-${HELM_VERSION}-linux-amd64.tar.gz  ; \
 	tar xvfz /tmp/helm.tgz -C /usr/local/bin/ --strip-components=1 linux-amd64/helm ;\
 	chmod a+x /usr/local/bin/helm;
+	#\
+	#apk add go; \
+	#go get  github.com/VirtusLab/render; \
+	#go build  github.com/VirtusLab/render; \
+	#apk del go; \
+	#sudo mv render /usr/local/bin/render
 
 ENTRYPOINT ["/bin/bash"]
 
