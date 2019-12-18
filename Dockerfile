@@ -30,6 +30,8 @@ RUN	apk update ;\
 	\
 	curl -o /usr/local/bin/gomplate https://github.com/hairyhenderson/gomplate/releases/download/${GOMPLATE_VERSION}/gomplate_linux-amd64-slim  ; \
 	chmod a+x /usr/local/bin/gomplate;
+	
+RUN	pip install yq
 
 ENTRYPOINT ["/bin/bash"]
 
