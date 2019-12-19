@@ -10,6 +10,7 @@ RUN	apk update ;\
 		curl  \
 		docker \
 		git \
+		jq \
 		openssl \
 		openssh-client \
 		nodejs  \
